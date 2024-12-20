@@ -2,7 +2,7 @@ import {  createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 
 export const fetchData = createAsyncThunk("posts/fetchData", async () => {
-  const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const response = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=30");
   return response.json();
 });
 
