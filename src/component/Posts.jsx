@@ -18,6 +18,7 @@ const Posts = () => {
 },[Dispatch,status])
 
   return (
+    
     <div >
     {status === 'loading' && <h1>Loading...</h1>}
     {status === 'succeeded' && ( Posts.map((post)=>
