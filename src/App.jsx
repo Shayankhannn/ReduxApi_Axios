@@ -4,7 +4,7 @@ import Posts from "./component/Posts"
 
 const App = () => {
   return (
-    <div>
+    <div >
       <h1>Blog App</h1>
       <Posts />
     </div>
