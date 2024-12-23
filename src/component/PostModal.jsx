@@ -20,13 +20,15 @@ const PostModal = ({
       setTitle(selectedPost.title);
       setBody(selectedPost.body);
 
-    }else if(Modalmode === "add"){
-      setTitle("");
-      setBody("");
     }
+    // else if(Modalmode === "add"){
+    //   setTitle("");
+    //   setBody("");
+    // }
   },[selectedPost,Modalmode]) 
 const handleFormSubmit = (e) => {
   e.preventDefault();
+  if(title.trim()  && body.trim() ){
   if(Modalmode === "add"){
     const newPost = {
       title: title,
@@ -46,12 +48,13 @@ const handleFormSubmit = (e) => {
 }
 onClose();
 };
+};
 
   return createPortal(
     <>
       <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50">
         <div className="flex justify-center items-center h-full">
-          <div className="bg-white w-1/3 h-1/2 rounded-lg shadow-lg p-4 relative">
+          <div className="bg-white w-1/3 h-auto rounded-lg shadow-lg p-4 relative">
             <div className="absolute top-0 right-0 m-4   text-1xl cursor-pointer font-bold">
               <button onClick={onClose}>X</button>
             </div>
@@ -70,6 +73,7 @@ onClose();
                 placeholder="Body"
                 className="border border-gray-300 rounded-lg p-2"
                 value={body}
+                rows={4}
                 onChange={(e) => setBody(e.target.value)}
               />
               <button
@@ -78,7 +82,7 @@ onClose();
               >
                 {Modalmode === "add" ? "Add Post" : "Update Post"}
               </button>
-              <button
+              <button onClick={onClose}
                 type="button"
                 className="bg-blue-500 text-white rounded-lg p-2"
               >
