@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deletePost, fetchData } from "../app/features/crud/CrudSlice";
+import { deleteData, fetchData } from "../app/features/crud/CrudSlice";
 import PostsCard from "./PostsCard";
 import PostModal from "./PostModal";
 
@@ -34,7 +34,7 @@ const Posts = () => {
       };
 
 const onDelete = (id) => {
-  Dispatch(deletePost(id));
+  Dispatch(deleteData(id));
 };
 
   return (

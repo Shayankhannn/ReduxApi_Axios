@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { useDispatch } from "react-redux";
-import { addPost, updatePost } from "../app/features/crud/CrudSlice";
+import { addData, updateData } from "../app/features/crud/CrudSlice";
 
 const PostModal = ({
   isopen,
@@ -21,10 +21,10 @@ const PostModal = ({
       setBody(selectedPost.body);
 
     }
-    // else if(Modalmode === "add"){
-    //   setTitle("");
-    //   setBody("");
-    // }
+    else if(Modalmode === "add"){
+      setTitle("");
+      setBody("");
+    }
   },[selectedPost,Modalmode]) 
 const handleFormSubmit = (e) => {
   e.preventDefault();
@@ -35,7 +35,7 @@ const handleFormSubmit = (e) => {
       body: body,
       id: Date.now(),
     }
-    Dispatch(addPost(newPost))
+    Dispatch(addData(newPost))
   }else if(Modalmode === "edit"){
     const updatedPost = {
     
@@ -44,7 +44,7 @@ const handleFormSubmit = (e) => {
       body: body,
     
   }
-  Dispatch(updatePost(updatedPost))
+  Dispatch(updateData(updatedPost))
 }
 onClose();
 };

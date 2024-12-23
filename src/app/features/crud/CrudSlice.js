@@ -6,7 +6,7 @@ const Api = "https://jsonplaceholder.typicode.com/posts"
 
 export const fetchData = createAsyncThunk("posts/fetchData", async () => {
   const response = await axios.get(Api);
-  return response.data.slice(0, 10);
+  return response.data.slice(0, 5);
 });
 
 export const addData = createAsyncThunk("posts/addData", async (data) => {
@@ -63,12 +63,12 @@ export const crudSlice = createSlice({
         .addCase(updateData.fulfilled,(state,action)=>{
             state.data = state.data.map((post)=> post.id === action.payload.id ? action.payload  : post)
         })
-        .addCase(deleteData, (state,action)=>{
+        .addCase(deleteData.fulfilled, (state,action)=>{
             state.data = state.data.filter((post)=>post.id !== action.payload)
         })
         
     } 
 })
 
-export const {addPost,updatePost,deletePost} = crudSlice.actions
+
 export default crudSlice.reducer
