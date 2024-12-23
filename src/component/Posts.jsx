@@ -34,6 +34,7 @@ const Posts = () => {
       };
 
 const onDelete = (id) => {
+  window.confirm("Are you sure you want to delete this post?") &&
   Dispatch(deleteData(id));
 };
 
