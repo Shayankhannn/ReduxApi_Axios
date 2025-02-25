@@ -1,7 +1,7 @@
 
 const PostsCard = ({title,body,onEdit,onDelete}) => {
     return (
-        <div className=" w-full sm:w-1/2 md:w-1/3 lg:w-1/4  bg-white border border-gray-200 p-6 shadow-lg hover:shadow-xl transition-shadow rounded-2xl">
+        <div className=" w-full h-full  hover:bg-gray-300  bg-white border border-gray-200 p-6 shadow-lg hover:shadow-xl transition-shadow rounded-2xl">
         <h5 className="text-xl font-semibold text-gray-800 mb-3">{title}</h5>
         <p className="text-gray-600 text-base mb-4">{body}</p>
         <div className="flex justify-center gap-2">

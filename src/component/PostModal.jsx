@@ -43,11 +43,11 @@ const PostModal = ({ isopen, onClose, Modalmode, selectedPost }) => {
 
   return createPortal(
     <>
-      <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50"  >
-        <div className="flex justify-center items-center h-full">
-          <div className="bg-white w-2/3 h-auto rounded-lg shadow-lg p-4 relative">
+      <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center" onClick={onClose} >
+          <div className="bg-white w-2/3 h-auto rounded-lg shadow-lg p-4 relative" onClick={(e) => e.stopPropagation()}>
+      
             <div className="absolute top-0 right-0 m-4   text-1xl cursor-pointer font-bold">
-              <button onClick={onClose}>X</button>
+              <button onClick={onClose} className="text-2xl font-bold font-poppins">X</button>
             </div>
             <h2 className="text-2xl font-bold mb-4">
               {Modalmode === "add" ? "Add Post" : "Update Post"}
@@ -83,7 +83,7 @@ const PostModal = ({ isopen, onClose, Modalmode, selectedPost }) => {
             </form>
           </div>
         </div>
-      </div>
+     
     </>,
     document.getElementById("portal-modal")
   );
